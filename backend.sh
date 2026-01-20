@@ -14,6 +14,6 @@ npm install &>> /tmp/expense.log
 systemctl daemon-reload &>> /tmp/expense.log
 systemctl enable backend &>> /tmp/expense.log
 systemctl start backend &>> /tmp/expense.log
-dnf install mysql -y
+dnf install mysql -y &>> /tmp/expense.log
 mysql -h 172.31.29.16 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
