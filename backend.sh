@@ -13,8 +13,9 @@ dnf install nodejs -y &>> $LOG
 echo $?
 
 print_Head "Add user"
+if [ $? -ne 9 ]; then
 useradd expense
-echo $?
+fi
 
 print_Head "Copy service file to Systemd"
 cp backend.service /etc/systemd/system/backend.service
