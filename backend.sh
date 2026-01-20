@@ -51,6 +51,6 @@ dnf install mysql -y &>> $LOG
 echo $?
 
 print_Head "Setup Schema"
-mysql -h 172.31.31.217 -uroot -p${mysql_root_password} < /app/schema/backend.sql
+mysql -h 172.31.26.143 -uroot -p${mysql_root_password} < /app/schema/backend.sql
 echo $?
 

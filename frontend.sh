@@ -1,5 +1,5 @@
-
 source common.sh
+
 print_Head "Install Nginx"
 dnf install nginx -y &>>$LOG
 echo $?
