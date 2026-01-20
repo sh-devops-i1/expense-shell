@@ -13,11 +13,9 @@ dnf install nodejs -y &>> $LOG
 echo $?
 
 print_Head "Add user"
+id expense $>>$LOG
+if [  $? -ne  0 ]; then
 useradd expense
-if [ $? -ne  9 ]; then
-useradd expense
-else
-  exit 1
 fi
 
 print_Head "Copy service file to Systemd"
