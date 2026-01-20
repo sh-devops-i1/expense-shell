@@ -13,7 +13,7 @@ dnf install nodejs -y &>> $LOG
 echo $?
 
 print_Head "Add user"
-id expense $>>$LOG
+id expense &>>$LOG
 if [ $? -ne 0 ]; then
 useradd expense
 fi
