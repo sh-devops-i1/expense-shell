@@ -22,11 +22,15 @@ print_Head "Copy service file to Systemd"
 cp backend.service /etc/systemd/system/backend.service
 echo $?
 
+print_Head "Clean Old content"
+rm -rf /app/*
+echo $?
+
 print_Head "Creating Directory"
 mkdir /app
 echo $?
 
-rm -rf /app/*
+
 print_Head "Download App content"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip &>> $LOG
 echo $?
