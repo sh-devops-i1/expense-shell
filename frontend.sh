@@ -1,7 +1,9 @@
-source common.sh
+#!/bin/bash
+
+source ./common.sh
 
 print_Head "Install Nginx"
-dnf install nginx -y &>>$LOG
+dnf install nginx unzip -y &>>$LOG
 echo $?
 
 print_Head "copy nginx Reverse proxy conf file"
@@ -17,8 +19,8 @@ curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-fro
 echo $?
 
 print_Head "Unzip the content"
-cd /usr/share/nginx/html
-unzip /tmp/frontend.zip &>>$LOG
+cd /usr/share/nginx/html || exit 1
+unzip -o /tmp/frontend.zip &>>$LOG
 echo $?
 
 print_Head "Start Nginx"
