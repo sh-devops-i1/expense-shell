@@ -1,3 +1,4 @@
+set -e
 source common.sh
 
 print_Head "Disable nodejs"
