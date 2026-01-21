@@ -1,5 +1,8 @@
 set -e
 source common.sh
+mysql_root_password=$1
+app_dir=/app
+component=backend
 
 print_Head "Disable nodejs"
 dnf module disable nodejs -y &>> $LOG
@@ -23,23 +26,7 @@ print_Head "Copy service file to Systemd"
 cp backend.service /etc/systemd/system/backend.service
 print_Status $?
 
-print_Head "Clean Old content"
-rm -rf /app
-print_Status $?
-
-print_Head "Creating Directory"
-mkdir /app
-print_Status $?
-
-
-print_Head "Download App content"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip &>> $LOG
-print_Status $?
-
-print_Head "Unzip app content"
-cd /app
-unzip /tmp/backend.zip &>> $LOG
-print_Status $?
+app_pre_req
 
 print_Head "install nodejs dependencies npm package"
 npm install &>> $LOG

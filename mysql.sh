@@ -1,4 +1,5 @@
 source common.sh
+mysql_root_password=$1
 
 print_Head "Install MySQL Server"
 dnf install mysql-server -y &>> $LOG
