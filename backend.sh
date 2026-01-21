@@ -24,7 +24,7 @@ cp backend.service /etc/systemd/system/backend.service
 print_Status $?
 
 print_Head "Clean Old content"
-rm -rf /app/*
+rm -rf /app
 print_Status $?
 
 print_Head "Creating Directory"
